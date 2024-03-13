@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/bundle"
 import { CardListSlide } from "./CardListSlide";
 
-export const CardListSwiper = ({slides, title=""}: {slides: any, title?: string}) => {
+export const CardListSwiper = ({slides, title=""}: {slides: any, title?: string | undefined}) => {
   return (
     <div className="my-8 h-[250px] w-full flex flex-col">
         <div className="p-4 text-2xl font-bold text-gray-600">
