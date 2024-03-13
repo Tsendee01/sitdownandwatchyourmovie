@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Anime {
+  mal_id         Int
+  url            String
+  images         Images
+  trailer        Trailer
+  approved       Boolean
+  titles         Title[]
+  title          String
+  title_english  String
+  title_japanese String
+  title_synonyms String[]
+  type           String
+  source         String
+  episodes       Int
+  status         String
+  airing         Boolean
+  aired          Aired
+  duration       String
+  rating         String
+  score          Int
+  scored_by      Int
+  rank           Int
+  popularity     Int
+  members        Int
+  favorites      Int
+  synopsis       String
+  background     String
+  season         String
+  year           Int
+  broadcast      Broadcast
+  producers      Producer[]
+  licensors      Licensor[]
+  studios        Studio[]
+  genres         Genre[]
+  explicit_genres Genre[]
+  themes         Theme[]
+  demographics   Demographic[]
+  relations      Relation[]
+  theme          ThemeDetail
+  external       External[]
+  streaming      Streaming[]
+}
+
+model Images {
+  jpg  ImageType
+  webp ImageType
+}
+
+model ImageType {
+  image_url       String
+  small_image_url String
+  large_image_url String
+}
+
+model Trailer {
+  youtube_id String
+  url        String
+  embed_url  String
+}
+
+model Title {
+  type  String
+  title String
+}
+
+model Aired {
+  from  String
+  to    String
+  prop  AiredProp
+}
+
+model AiredProp {
+  from   Date
+  to     Date
+  string String
+}
+
+model Broadcast {
+  day      String
+  time     String
+  timezone String
+  string   String
+}
+
+model Producer {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Licensor {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Studio {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Genre {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Theme {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Demographic {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model Relation {
+  relation String
+  entry    Entry[]
+}
+
+model Entry {
+  mal_id Int
+  type   String
+  name   String
+  url    String
+}
+
+model ThemeDetail {
+  openings String[]
+  endings  String[]
+}
+
+model External {
+  name String
+  url  String
+}
+
+model Streaming {
+  name String
+  url  String
+}
