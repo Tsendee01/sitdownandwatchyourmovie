@@ -11,11 +11,11 @@ export const useIsExpandSidebarContext = () => useContext(IsExpandSidebarContext
 
 //create context
 export const FunctionContext = createContext<ContextValueType>({} as ContextValueType);
-export const IsExpandSidebarContext = createContext<boolean>(false)
+export const IsExpandSidebarContext = createContext<boolean>(true)
 
 //UserContext
 export const UserContextProvider: React.FC<React.PropsWithChildren> = ({children}) => {
-    const [isExpandSidebar, setIsExpandSidebar] = useState<boolean>(false);
+    const [isExpandSidebar, setIsExpandSidebar] = useState<boolean>(true);
 
     const contextValue: ContextValueType = {
         setIsExpandSidebar: () => {

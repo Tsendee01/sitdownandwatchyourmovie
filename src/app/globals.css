@@ -68,5 +68,9 @@
 }
 
 .swiper-slide {
-  width: 25% !important;
+  width: 10% !important;
+}
+
+.swiper {
+  margin: 0 !important;
 }

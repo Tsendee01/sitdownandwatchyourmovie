@@ -7,9 +7,11 @@ const OPTIONS: EmblaOptionsType = { loop: true }
 const SLIDE_COUNT = 5
 
 export default async function Home() {
-  
+  const fixDataLength = (data: any) => {
+    data.lenth < 3
+  }
   const data = await getOwlCarouselData();
-  const SLIDES = data.data;
+  const SLIDES = data
   
   return (
     <div>

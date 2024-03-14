@@ -1,15 +1,28 @@
 "use client"
 
-import { Play } from "lucide-react"
+import { Play, Plus } from "lucide-react"
 import { Button } from "../ui/button"
 
 export const OwlCarouselSlide = ({content}: any) => {
-    return <div className="w-full h-full flex">
-        <img src={content.images.webp.large_image_url} alt="..." className="flex flex-1 rounded-[1.8rem] object-cover"/>
-        <div className="absolute h-full w-[.] flex flex-col justify-end p-8">
-            <div className="text-gray-300">{content.title}</div>
+    const addWatchList = () => {
+        // TODO: Add Wathc List
+        console.log("addWatchList")
+    }
 
-            <Button className="w-[250px] flex gap-4"><Play /> Үзэх</Button>
+    const showMovieModal = () => {
+        // TODO: showMovieModal
+        console.log("showMovieModal")
+    }
+    console.log("content======>", content);
+    return <div className="w-full h-full flex">
+        <img src={content.images.webp.large_image_url} alt="..." className="flex flex-1 rounded-[1.8rem] object-cover opacity-90"/>
+        <div className="absolute h-full lg:w-[500px] flex flex-col justify-end p-12 cursor-default">
+            <div className="text-5xl text-muted dark:text-foreground">{content.title}</div>
+            <div className="line-clamp-6 text-sm my-8 text-muted dark:text-foreground">{content.synopsis}</div>
+            <div className="flex gap-4">
+                <Button className="w-2/4 flex gap-4" onClick={() => showMovieModal()}><Play /> Үзэх</Button>
+                <Button className="w-2/4 flex gap-4 border border-background dark:border-foreground dark:text-foreground hover:opacity-50 text-background" onClick={() => addWatchList()} variant="ghost"><Plus /> Дараа үзэх</Button>
+            </div>
         </div>
     </div>
 }

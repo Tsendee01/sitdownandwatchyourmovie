@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useEffect } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import { DotButton, useDotButton } from "./OwlCarouselDotButton";
 import useEmblaCarousel from "embla-carousel-react";
@@ -36,7 +36,7 @@ const OwlCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className="flex justify-center">
-        <div className="embla__dots">
+        <div className="embla__dots mt-[-30px] z-10">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
