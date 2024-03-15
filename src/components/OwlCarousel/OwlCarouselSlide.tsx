@@ -15,7 +15,7 @@ export const OwlCarouselSlide = ({content}: any) => {
     }
     console.log("content======>", content);
     return <div className="w-full h-full flex">
-        <img src={content.images.webp.large_image_url} alt="..." className="flex flex-1 rounded-[1.8rem] object-cover opacity-90"/>
+        <img src={content.images.webp.large_image_url} alt="..." className="flex flex-1 rounded-xl object-cover opacity-90"/>
         <div className="absolute h-full lg:w-[500px] flex flex-col justify-end p-12 cursor-default">
             <div className="text-5xl text-muted dark:text-foreground">{content.title}</div>
             <div className="line-clamp-6 text-sm my-8 text-muted dark:text-foreground">{content.synopsis}</div>

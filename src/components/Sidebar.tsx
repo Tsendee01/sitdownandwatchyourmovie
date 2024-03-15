@@ -15,14 +15,13 @@ import { Film, Heart, Home, Save } from "lucide-react";
 
 const menuItems = [
   { id: 1, label: "Нүүр", icon: Home, link: "/" },
-  { id: 2, label: "Film", icon: Film, link: "/home" },
+  { id: 2, label: "Series", icon: Film, link: "/series" },
   { id: 3, label: "Like", icon: Heart, link: "/like" },
   { id: 4, label: "Watch Later", icon: Save, link: "/watch" },
 ];
 
 export const Sidebar = () => {
   const isExpandSidebar = useIsExpandSidebarContext();
-  const functionContext = useFunctionContext();
 
   const router = usePathname();
 
