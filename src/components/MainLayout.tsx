@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Header />
-        <ScrollArea className="flex-1 bg-white dark:bg-dark-backround">
+        <ScrollArea className="flex-1 bg-white dark:bg-dark-backround mb-16 md:mb-0">
           {children}
         </ScrollArea>
       </div>

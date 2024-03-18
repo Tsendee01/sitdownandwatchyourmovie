@@ -7,7 +7,7 @@ export const CardListSlide = ({ content }: { content: any }) => {
 
   return (
     <div
-      className="w-full h-full flex justify-center"
+      className="w-full h-full flex justify-center hover:opacity-80 cursor-pointer group/card_slide_hover"
       onClick={() => showMovieModal()}
     >
       <img

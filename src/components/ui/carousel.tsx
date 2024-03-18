@@ -210,14 +210,16 @@ const CarouselPrevious = React.forwardRef<
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className ,{
+          "hidden": !canScrollPrev
+        }
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <ArrowLeft className="h-4 w-4 md:w-6 md:h-6" />
+      <span className="sr-only">Өмнөх хуудас</span>
     </Button>
   )
 })
@@ -239,14 +241,16 @@ const CarouselNext = React.forwardRef<
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
+        className,{
+          "hidden": !canScrollNext
+        }
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <ArrowRight className="h-4 w-4 md:w-6 md:h-6" />
+      <span className="sr-only">Дараагийн хуудас</span>
     </Button>
   )
 })

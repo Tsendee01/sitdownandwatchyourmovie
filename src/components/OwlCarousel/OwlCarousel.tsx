@@ -1,55 +1,39 @@
 "use client"
-import React, { useEffect } from "react";
-import { EmblaOptionsType } from "embla-carousel";
-import { DotButton, useDotButton } from "./OwlCarouselDotButton";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import "./owlCarouselStyle.css";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { useIsExpandSidebarContext } from "@/context/UserContext";
 import { OwlCarouselSlide } from "./OwlCarouselSlide";
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
-
-const OwlCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: true, delay: 5000 }),
-  ]);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi);
-
+export const OwlCarousel = ({contents} : {contents: any}) => {
+    const isExpandSidebar = useIsExpandSidebarContext();
   return (
-    <section className="embla mt-2">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((content, index) => (
-            <div className="embla__slide" key={index}>
-              <div className="embla__slide__number">
-                <OwlCarouselSlide content={content}/>
+      <Carousel
+        opts={{
+          align: "center",
+          loop: true,
+        }}
+        // className="p-4"
+      >
+        <CarouselContent>
+          {contents?.map((content: any, index: number) => (
+            <CarouselItem key={index}>
+              <div className="">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center max-h-[600px] w-full p-0">
+                    {/* <span className="text-3xl font-semibold">{content.title}</span> */}
+                    <OwlCarouselSlide content={content}/>
+                  </CardContent>
+                </Card>
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
-
-      <div className="flex justify-center">
-        <div className="embla__dots mt-[-30px] z-10">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : ""
-              )}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+        </CarouselContent>
+      </Carousel>
   );
 };
-
-export default OwlCarousel;

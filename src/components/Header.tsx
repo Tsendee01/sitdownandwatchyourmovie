@@ -41,7 +41,7 @@ export const Header = () => {
       <div className="md:hidden pl-4"><MoblieDrawerMenu /></div>
       {/* Toggle button end */}
       <div className="mx-4">
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
               <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -57,7 +57,7 @@ export const Header = () => {
               Dark
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
     </div>
   );

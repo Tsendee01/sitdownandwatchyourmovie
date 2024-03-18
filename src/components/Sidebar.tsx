@@ -16,7 +16,7 @@ import { Film, Heart, Home, Save } from "lucide-react";
 const menuItems = [
   { id: 1, label: "Нүүр", icon: Home, link: "/" },
   { id: 2, label: "Series", icon: Film, link: "/series-list" },
-  { id: 3, label: "Like", icon: Heart, link: "/like" },
+  { id: 3, label: "Favorite", icon: Heart, link: "/favorite" },
   { id: 4, label: "Watch Later", icon: Save, link: "/watch" },
 ];
 

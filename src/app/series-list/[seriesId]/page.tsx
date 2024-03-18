@@ -3,7 +3,7 @@ import { getMovieById } from "@/actions/action";
 const Series = async ({ params: { seriesId } }: { params: { seriesId: string } }) => {
 
     const { data } = await getMovieById(seriesId);
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             series details: {data.title}
