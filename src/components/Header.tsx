@@ -3,7 +3,7 @@ import {
   useFunctionContext,
   useIsExpandSidebarContext,
 } from "@/context/UserContext";
-import { CollapsIcon } from "./icons";
+import { CollapsIcon, LogoIcon } from "./icons";
 import { cn } from "@/lib/utils";
 import { ArrowLeft, Moon, Sun } from "lucide-react";
 import {
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
+import { MoblieDrawerMenu } from "./MobileDrawerMenu";
 
 export const Header = () => {
   const functionContext = useFunctionContext();
@@ -27,14 +28,17 @@ export const Header = () => {
   return (
     <div className="flex items-center h-[60px] border-b-[1px] shadow-md justify-between w-full z-10 dark:bg-dark-high">
       {/* Toggle buuton */}
-      <button
-        className={cn("h-full w-[60px] flex justify-center items-center", {
-          "rotate-180": isExpandSidebar,
-        })}
-        onClick={handleSidebarToggle}
-      >
-        <ArrowLeft />
-      </button>
+      <div className="hidden md:block">
+        <button
+          className={cn("h-full w-[60px] flex justify-center items-center", {
+            "rotate-180": isExpandSidebar,
+          })}
+          onClick={handleSidebarToggle}
+        >
+          <ArrowLeft />
+        </button>
+      </div>
+      <div className="md:hidden pl-4"><MoblieDrawerMenu /></div>
       {/* Toggle button end */}
       <div className="mx-4">
         <DropdownMenu>

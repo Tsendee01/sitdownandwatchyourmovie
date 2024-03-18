@@ -1,7 +1,5 @@
 "use server"
 
-import axios from "axios"
-
 export const getOwlCarouselData = async () => {
     const res = await fetch('https://api.jikan.moe/v4/anime?limit=20');
     const { data } = await res.json();
@@ -12,4 +10,9 @@ export const getOwlCarouselData = async () => {
     }
 
     return result;
+}
+
+export const getMovieById = async (id: any) => {
+    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
+    return await res.json();
 }

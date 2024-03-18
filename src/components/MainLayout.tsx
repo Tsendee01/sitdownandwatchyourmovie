@@ -2,6 +2,7 @@ import React from "react";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { ScrollArea } from "./ui/scroll-area";
+import { MobileTabBar } from "./MobileTabBar";
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,6 +14,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </ScrollArea>
       </div>
+      <MobileTabBar />
     </div>
   );
 };

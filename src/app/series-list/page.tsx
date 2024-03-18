@@ -1,7 +1,7 @@
 import { getOwlCarouselData } from "@/actions/action";
 import { SeriesList } from "@/components/series/SeriesList";
 
-const Series = async () => {
+const SeriesListPage = async () => {
 
   const CONTENTS = await getOwlCarouselData();
 
@@ -12,4 +12,4 @@ const Series = async () => {
   );
 };
 
-export default Series;
+export default SeriesListPage;
