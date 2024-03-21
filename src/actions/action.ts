@@ -16,3 +16,8 @@ export const getMovieById = async (id: any) => {
     const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`)
     return await res.json();
 }
+
+export const getMovieEpisodesById = async (id: any) => {
+    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/episodes`)
+    return await res.json();
+}

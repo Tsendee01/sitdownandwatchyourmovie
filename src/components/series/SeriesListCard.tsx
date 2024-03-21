@@ -10,11 +10,15 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Heart, Info, Play, Plus, CircleFadingPlus, Minus } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 
 export const SeriesListCard = ({ content }: { content: any }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const [isAddWatchList, setIsAddWatchList] = useState(false)
+    const router = useRouter();
+    
     const addWatchList = () => {
         // TODO: Add Wathc List
         setIsAddWatchList(true);
@@ -23,6 +27,7 @@ export const SeriesListCard = ({ content }: { content: any }) => {
 
     const showMovieModal = () => {
         // TODO: showMovieModal
+        router.push(`/series/${content.mal_id}`)
         console.log("showMovieModal")
     }
 
@@ -53,7 +58,7 @@ export const SeriesListCard = ({ content }: { content: any }) => {
             <img src={content.images.webp.large_image_url} alt="..." className="object-cover flex-1 rounded-xl"/>
         </CardContent>
         <CardFooter className="flex justify-between flex-col gap-2 md:flex-row">
-                <Button className="flex gap-1 w-full sm:min-w-fit dark:border-foreground dark:text-foreground"  variant="outline"><Info /> Дэлгэрэнгүй</Button>
+                <Button className="flex gap-1 w-full sm:min-w-fit dark:border-foreground dark:text-foreground"  variant="outline" onClick={() => showMovieModal()}><Info /> Дэлгэрэнгүй</Button>
                 <Button className="flex gap-1 w-full sm:min-w-fit" onClick={() => showMovieModal()}><Play /> Үзэх</Button>
         </CardFooter>
         </Card>

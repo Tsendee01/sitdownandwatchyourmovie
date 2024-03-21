@@ -1,14 +1,17 @@
-export const CardListSlide = ({ content }: { content: any }) => {
+"use client"
+import { useRouter } from 'next/navigation'
 
-  const showMovieModal = () => {
-    // TODO: showMovieModal
-    console.log("showMovieModal");
-  };
+export const CardListSlide = ({ content }: { content: any }) => {
+  const router = useRouter()
+
+  const onClickCard = () => {
+    router.push(`/series/${content.mal_id}`)
+  }
 
   return (
     <div
       className="w-full h-full flex justify-center hover:opacity-80 cursor-pointer group/card_slide_hover"
-      onClick={() => showMovieModal()}
+      onClick={() => onClickCard()}
     >
       <img
         src={content.images.webp.large_image_url}
